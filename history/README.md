@@ -10,5 +10,7 @@
 
 [百家讲坛 王立群读史记之汉武帝](https://mlcldh.github.io/history/百家讲坛 王立群读史记之汉武帝)
 
+[《百家讲坛》明太祖朱元璋系列](https://mlcldh.github.io/history/《百家讲坛》明太祖朱元璋系列)
+
 [百家讲坛 雍正十三年（上部）](https://mlcldh.github.io/history/百家讲坛 雍正十三年（上部）)
 
