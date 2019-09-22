@@ -1,3 +1,5 @@
+# 解决IJK在子线程执行UI的问题
+
 Xcode 9以后增加了新特性“主线程检测器(Main Thread Checker)”，这样在运行IJK时，就会报IJKSDLGLView里面，子线程获取“UIApplication的applicationState”、layer。
 
 有些人的做法是关闭检测器，但这并没有从根本上解决问题，就应该将这些操作改成使用主线程进行操作，下面是我的做法，直接修改IJKSDLGLView的源码。
