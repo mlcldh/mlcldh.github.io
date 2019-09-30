@@ -1,3 +1,5 @@
+# 解决gem install bundler-1.17.3失败的问题
+
 终端执行gem install bundler:1.17.3会失败，前面加上sudo也不行，报/usr/bin没有写入权限
 
 ```shell
