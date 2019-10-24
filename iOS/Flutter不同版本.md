@@ -1,5 +1,16 @@
 官方下载地址：[Windows版本](https://flutter.dev/docs/development/tools/sdk/releases?tab=windows) [macOS版本](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos) [Linux版本](https://flutter.dev/docs/development/tools/sdk/releases?tab=linux)
 
+### v1.9.1+hotfix.5
+
+Release Date 2019/10/18
+
+```shell
+Flutter 1.9.1+hotfix.5 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 1aedbb1835 • 2019-10-17 08:37:27 -0700
+Engine • revision b863200c37
+Tools • Dart 2.5.0
+```
+
 ### v1.9.1+hotfix.4
 
 Release Date 2019/10/2
@@ -7,6 +18,17 @@ Release Date 2019/10/2
 ```shell
 Flutter 1.9.1+hotfix.4 • channel stable • https://github.com/flutter/flutter.git
 Framework • revision cc949a8e8b • 2019-09-27 15:04:59 -0700
+Engine • revision b863200c37
+Tools • Dart 2.5.0
+```
+
+### v1.9.1+hotfix.2
+
+Release Date 2019/9/23
+
+```shell
+Flutter 1.9.1+hotfix.2 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 2d2a1ffec9 • 2019-09-06 18:39:49 -0700
 Engine • revision b863200c37
 Tools • Dart 2.5.0
 ```
