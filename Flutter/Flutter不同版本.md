@@ -1,5 +1,14 @@
 官方下载地址：[Windows版本](https://flutter.dev/docs/development/tools/sdk/releases?tab=windows) [macOS版本](https://flutter.dev/docs/development/tools/sdk/releases?tab=macos) [Linux版本](https://flutter.dev/docs/development/tools/sdk/releases?tab=linux)
 
+### 2019年11月12日 GMT+8 上午7:56:43的master分支代码
+
+```shell
+Flutter 1.10.17-pre.59 • channel master • https://github.com/flutter/flutter.git
+Framework • revision 9e0df259df • 2019-11-11 15:56:43 -0800
+Engine • revision 31cd2dfca2
+Tools • Dart 2.7.0
+```
+
 ### v1.9.1+hotfix.5
 
 Release Date 2019/10/18
