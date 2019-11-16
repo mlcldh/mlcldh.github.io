@@ -56,10 +56,5 @@
 
 [iOS屏幕分辨率尺寸对比](https://github.com/mlcldh/iOS屏幕分辨率尺寸对比)
 
-[Swift学习文档](https://mlcldh.github.io/iOS/Swift学习文档)
-
-[Swift版本](https://mlcldh.github.io/iOS/Swift版本)
-
-[SwiftUI学习文档](https://mlcldh.github.io/iOS/SwiftUI学习文档)
-
 [苹果开发文档](https://mlcldh.github.io/iOS/苹果开发文档)
+
