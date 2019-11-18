@@ -26,13 +26,15 @@
 
 ### 文章
 
-[苹果开发文档](https://mlcldh.github.io/iOS/苹果开发文档)
-
 [iOS字符串编码](https://mlcldh.github.io/iOS/iOS字符串编码)
 
 [解决IJK在子线程执行UI的问题](https://mlcldh.github.io/iOS/解决IJK在子线程执行UI的问题)
 
-[解决IJK在子线程执行UI的问题](https://mlcldh.github.io/iOS/解决IJK在子线程执行UI的问题)
+[解决gem install bundler-1.17.3失败的问题](https://mlcldh.github.io/iOS/解决gem install bundler-1.17.3失败的问题)
+
+[iOS屏幕分辨率尺寸对比](https://github.com/mlcldh/iOS屏幕分辨率尺寸对比)
+
+[苹果开发文档](https://mlcldh.github.io/iOS/苹果开发文档)
 
 **[更多](https://mlcldh.github.io/iOS/)**
 
@@ -53,6 +55,8 @@
 ## Flutter
 
 [Flutter不同版本](https://mlcldh.github.io/Flutter/Flutter不同版本)
+
+[Flutter学习文档](https://mlcldh.github.io/Flutter/Flutter学习文档)
 
 **[更多](https://mlcldh.github.io/Flutter/)**
 
