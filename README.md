@@ -28,10 +28,6 @@
 
 [苹果开发文档](https://mlcldh.github.io/iOS/苹果开发文档)
 
-[Swift学习文档](https://mlcldh.github.io/iOS/Swift学习文档)
-
-[SwiftUI学习文档](https://mlcldh.github.io/iOS/SwiftUI学习文档)
-
 [iOS字符串编码](https://mlcldh.github.io/iOS/iOS字符串编码)
 
 [解决IJK在子线程执行UI的问题](https://mlcldh.github.io/iOS/解决IJK在子线程执行UI的问题)
@@ -39,6 +35,14 @@
 [解决IJK在子线程执行UI的问题](https://mlcldh.github.io/iOS/解决IJK在子线程执行UI的问题)
 
 **[更多](https://mlcldh.github.io/iOS/)**
+
+## Swift
+
+[Swift学习文档](https://mlcldh.github.io/Swift/Swift学习文档)
+
+[SwiftUI学习文档](https://mlcldh.github.io/Swift/SwiftUI学习文档)
+
+**[更多](https://mlcldh.github.io/Swift/)**
 
 ## watchOS
 
