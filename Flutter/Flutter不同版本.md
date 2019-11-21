@@ -75,3 +75,10 @@ Engine • revision 7375a0f414
 Tools • Dart 2.1.0 (build 2.1.0-dev.9.4 f9ebf21297)
 ```
 
+```shell
+Flutter 1.9.1 • channel unknown • unknown source
+Framework • revision c382b8e990 • 2019-08-18 15:22:36 -0400
+Engine • revision 5540684152
+Tools • Dart 2.5.0
+```
+
