@@ -34,7 +34,7 @@
 
 [解决gem install bundler-1.17.3失败的问题](https://mlcldh.github.io/iOS/解决gem install bundler-1.17.3失败的问题)
 
-[iOS屏幕分辨率尺寸对比](https://github.com/mlcldh/iOS屏幕分辨率尺寸对比)
+[iOS屏幕分辨率尺寸对比](https://mlcldh.github.io/iOS/iOS屏幕分辨率尺寸对比)
 
 [苹果开发文档](https://mlcldh.github.io/iOS/苹果开发文档)
 
