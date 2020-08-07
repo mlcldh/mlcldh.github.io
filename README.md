@@ -28,7 +28,7 @@
 
 ### 文章
 
-[约束的使用](https://mlcldh.github.io/iOS/约束的使用)
+[AutoLayout约束的使用](https://mlcldh.github.io/iOS/AutoLayout约束的使用)
 
 [iOS字符串编码](https://mlcldh.github.io/iOS/iOS字符串编码)
 
