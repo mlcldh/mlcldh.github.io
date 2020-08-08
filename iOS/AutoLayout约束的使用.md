@@ -1,3 +1,5 @@
+**[GitHub Markdown地址](https://github.com/mlcldh/mlcldh.github.io/blob/master/iOS/AutoLayout约束的使用.md)**
+
 ## 概述
 
 在iOS 6之前，可以使用UIView的autoresizingMask属性进行自动适配，autoresizingMask是个枚举UIViewAutoresizing 。
