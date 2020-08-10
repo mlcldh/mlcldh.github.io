@@ -140,6 +140,27 @@ UIView有个constraints属性，里面存放了其所有的约束。
 1. 当添加的一个约束里面只涉及一个view时，那么该约束就在该view上，比如width和height的。
 2. 当一个约束涉及两个view时，如果两个是父视图和子视图的关系，那么约束就在父视图上面，否则就分别递归查找两个view的上一层父视图，当查找到的父视图为同一个时，那么约束就在该父视图上。
 
+Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉及两个视图时，Masonry需要去便利查找两个视图最近的父视图，来添加或移除约束，Masonry就封装了View的一个Category方法，它的实现如下：
+
+```objective-c
+- (instancetype)mas_closestCommonSuperview:(MAS_VIEW *)view {
+    MAS_VIEW *closestCommonSuperview = nil;
+
+    MAS_VIEW *secondViewSuperview = view;
+    while (!closestCommonSuperview && secondViewSuperview) {
+        MAS_VIEW *firstViewSuperview = self;
+        while (!closestCommonSuperview && firstViewSuperview) {
+            if (secondViewSuperview == firstViewSuperview) {
+                closestCommonSuperview = secondViewSuperview;
+            }
+            firstViewSuperview = firstViewSuperview.superview;
+        }
+        secondViewSuperview = secondViewSuperview.superview;
+    }
+    return closestCommonSuperview;
+}
+```
+
 ## 约束绘制
 
 ```objective-c
