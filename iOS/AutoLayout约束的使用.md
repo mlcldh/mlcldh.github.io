@@ -176,6 +176,25 @@ Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉
 @end
 ```
 
+## UITableViewCell自适应高度
+
+利用约束实现的使用方法：
+
+1. 需要设置UITableView的rowHeight为UITableViewAutomaticDimension，或者heightForRowAtIndexPath代理方法返回UITableViewAutomaticDimension，其中实现代理方法的优先级比设置rowHeight的高。
+2. 为了兼容iOS11以前的系统，需要将estimatedRowHeight设置为一个正数，如果使用UITableViewAutomaticDimension的话，在iOS 11以前的系统会出现cell重叠的问题。其中UITableViewAutomaticDimension的值是-1。
+3. 在UITableViewCell内部设置基于其contentView顶部和底部的约束。
+
+```
+tableView.estimatedRowHeight = 44.0f;//为了
+tableView.rowHeight = UITableViewAutomaticDimension;
+```
+
+```objc
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {//相比设置rowHeight，该代理方法的优先级更高
+    return UITableViewAutomaticDimension;
+}
+```
+
 ## 动画
 
 先修改约束，然后让父视图调用layoutIfNeeded。
@@ -332,6 +351,8 @@ UIScrollView是iOS系统非常特殊的一个系统控件，当其contentSize大
 <img src="./images/constraintScrollViewProblem.jpg" alt="constraint1" style="zoom:30%;" />
 
 ### 原因
+
+基于UIScrollView的left、top、width、height都没问题，但基于其right、bottom会存在问题。
 
 需要直接或间距设置基于UIScrollView的宽度约束，其他视图相对于UIScrollView右侧布局才不会有问题；同样道理，需要直接或间距设置基于UIScrollView的高度约束，其他视图相对于UIScrollView底部布局才不会有问题。
 
