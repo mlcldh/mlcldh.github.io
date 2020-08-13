@@ -33,9 +33,11 @@ typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
 
 [https://github.com/mlcldh/MengAutoLayout](https://github.com/mlcldh/MengAutoLayout)
 
+其中这个Demo里面使用了我自己的pod库[MLCKit](https://github.com/mlcldh/MLCKit)，里面封装了一些常用的iOS方法。
+
 ## 第三方库
 
-Objective-C一般使用[Masonry](https://github.com/SnapKit/Masonry)，Swift使用[SnapKit](https://github.com/SnapKit/SnapKit)。两者有些区别，其中一个就是updateConstraints时，SnapKit邀请更新的约束必须是已经存在的约束，否则会报闪退。
+Objective-C一般使用[Masonry](https://github.com/SnapKit/Masonry)，Swift使用[SnapKit](https://github.com/SnapKit/SnapKit)。两者有些区别，其中一个就是updateConstraints时，SnapKit要求更新的约束必须是已经存在的约束，否则会报异常。
 
 下面的讲解中，我以Masonry和Objective-C的使用为主。
 
@@ -461,6 +463,8 @@ UITextView继承于UIScrollView，当设置其scrollEnabled属性为NO时，随�
 
 ## 批量布局控束
 
+### Masonry提供的
+
 Masonry里面有有个NSArray的Category，数组里面都是同一个父视图的子视图，利用这些方法除了可以批量设置、更新约束外，还可以让让里面的子视图规则的分别在父视图上面。
 
 ```objective-c
@@ -483,5 +487,49 @@ Masonry里面有有个NSArray的Category，数组里面都是同一个父视图�
 
 <img src="./images/constraintDistributeViewsLandscape.png" alt="constraint1" style="zoom:30%;" />
 
+### 自己封装
+
 其实，我们也可以自己去封装一些NSArray的Category，来批量布局子视图，来满足我们不同的业务需求。
+
+比如，上面说到的一组视图，我使每个视图的宽高能自适应，不搞“平均主义”，指让这些视图按照一定的间距连接起来，那就可以使用下面的NSArray的Category方法进行实现。其中mlc_closestCommonSuperview方法和Masonry的mas_closestCommonSuperview的方法内部实现一样。
+
+```objc
+- (void)mlc_combineViewsWithAxis:(UILayoutConstraintAxis)axis withFixedSpacing:(CGFloat)fixedSpacing {
+    if (self.count < 2) {
+        return;
+    }
+    UIView *lastView = self.firstObject;
+    for (NSInteger i = 1; i < self.count; i ++) {
+        UIView *view = self[i];
+        [self mlc_combineView:view lastView:lastView withAxis:axis fixedSpacing:fixedSpacing];
+        lastView = view;
+    }
+}
+- (void)mlc_combineViewsWithAxis:(UILayoutConstraintAxis)axis withFixedSpacings:(NSArray<NSNumber *> *)fixedSpacings {
+    if ((self.count < 2) || ((fixedSpacings.count + 1) != self.count)) {
+        return;
+    }
+    UIView *lastView = self.firstObject;
+    for (NSInteger i = 1; i < self.count; i ++) {
+        UIView *view = self[i];
+        CGFloat fixedSpacing = [fixedSpacings[i - 1] doubleValue];
+        [self mlc_combineView:view lastView:lastView withAxis:axis fixedSpacing:fixedSpacing];
+        lastView = view;
+    }
+}
+- (void)mlc_combineView:(UIView *)view lastView:(UIView *)lastView withAxis:(UILayoutConstraintAxis)axis fixedSpacing:(CGFloat)fixedSpacing  {
+    NSLayoutConstraint *constraint = nil;
+    if (axis == UILayoutConstraintAxisHorizontal) {
+        constraint = [NSLayoutConstraint constraintWithItem:view attribute:(NSLayoutAttributeLeft) relatedBy:(NSLayoutRelationEqual) toItem:lastView attribute:(NSLayoutAttributeRight) multiplier:1 constant:fixedSpacing];
+    } else {
+        constraint = [NSLayoutConstraint constraintWithItem:view attribute:(NSLayoutAttributeTop) relatedBy:(NSLayoutRelationEqual) toItem:lastView attribute:(NSLayoutAttributeBottom) multiplier:1 constant:fixedSpacing];
+    }
+    if (@available(iOS 8.0, *)) {
+        constraint.active = YES;
+    } else {
+        UIView *closestCommonSuperview = [view mlc_closestCommonSuperview:lastView];
+        [closestCommonSuperview addConstraint:constraint];
+    }
+}
+```
 
