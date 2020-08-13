@@ -53,16 +53,21 @@ Objective-C一般使用[Masonry](https://github.com/SnapKit/Masonry)，Swift使�
 ```
 
 ```objective-c
+//设置A相对于B的约束，那firstItem就是A，secondItem就是B。
 @property (nullable, readonly, assign) id firstItem;
 @property (nullable, readonly, assign) id secondItem;
 @property (readonly) NSLayoutAttribute firstAttribute;
 @property (readonly) NSLayoutAttribute secondAttribute;
 
+//关系，分为小于等于、等于、大于等于
 @property (readonly) NSLayoutRelation relation;
+//比例
 @property (readonly) CGFloat multiplier;
-
+//差值
 @property CGFloat constant;
 ```
+
+其中在大部分情况下，NSLayoutAttributeLeading和NSLayoutAttributeLeft效果是一样的，但对于适配阿拉伯语的话，就不一样了，因为阿拉伯语是从右往左的，NSLayoutAttributeLeading就和NSLayoutAttributeRight效果一样了。
 
 ### 系统控件自带约束
 
