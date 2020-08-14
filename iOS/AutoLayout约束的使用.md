@@ -71,7 +71,7 @@ Objective-C一般使用[Masonry](https://github.com/SnapKit/Masonry)，Swift使�
 
 ### 系统控件自带约束
 
-UILabel、UIButton、UIImageView等几乎所有的系统控件都有自己自带的约束，默认他们会根据自己内容的大小来添加相应约束。
+UILabel、UIButton、UIImageView、UISwitch等几乎所有的系统控件都有自己自带的约束，默认他们会根据自己内容的大小来添加相应约束。
 
 值得注意的是第三方控件YYLabel继承于UIView，YYLabel不能根据自身内容来添加相应约束。
 
@@ -168,36 +168,32 @@ Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉
 }
 ```
 
+## 调用时机
+
+有些开发者会在layoutSubviews里面添加、删除、修改约束，其实这个还是停留在以前frame布局的思维。
+
+如果你想怎么布局，就立马添加、删除、修改约束就可以了，不用等到layoutSubviews时才执行。
+
+如果在layoutSubviews进行约束操作的话，有出现bug的风险。我以前一个同事就是因为这么做，结果在iOS 8上显示就出了问题，我帮他改掉后就好了。
+
 ## 约束绘制
+
+添加、移除、修改约束后，frame不会立马更新，默认会在下个运行时到来时才去更新。另外系统控件自带的约束也不会立即就添加，也要等运行时到来时才添加。
+
+```objc
+dispatch_async(dispatch_get_main_queue(), ^{//此时会发现，view的frame都更新了，自身控件的约束也有了
+    });
+```
 
 ```objective-c
 @interface UIView (UIConstraintBasedLayoutCoreMethods) 
   
-//使约束在运行时到来是进行绘制
+//标记为需要重新布局，异步调用layoutIfNeeded刷新布局，不立即刷新
 - (void)setNeedsLayout;
 //使约束马上进行绘制
 - (void)layoutIfNeeded;
 
 @end
-```
-
-## UITableViewCell自适应高度
-
-利用约束实现的使用方法：
-
-1. 需要设置UITableView的rowHeight为UITableViewAutomaticDimension，或者heightForRowAtIndexPath代理方法返回UITableViewAutomaticDimension，其中实现代理方法的优先级比设置rowHeight的高。
-2. 为了兼容iOS11以前的系统，需要将estimatedRowHeight设置为一个正数，如果使用UITableViewAutomaticDimension的话，在iOS 11以前的系统会出现cell重叠的问题。其中UITableViewAutomaticDimension的值是-1。
-3. 在UITableViewCell内部设置基于其contentView顶部和底部的约束。
-
-```
-tableView.estimatedRowHeight = 44.0f;//为了
-tableView.rowHeight = UITableViewAutomaticDimension;
-```
-
-```objc
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {//相比设置rowHeight，该代理方法的优先级更高
-    return UITableViewAutomaticDimension;
-}
 ```
 
 ## 动画
@@ -236,11 +232,30 @@ tableView.rowHeight = UITableViewAutomaticDimension;
         }];
 ```
 
+## UITableViewCell自适应高度
+
+利用约束实现的使用方法：
+
+1. 需要设置UITableView的rowHeight为UITableViewAutomaticDimension，或者heightForRowAtIndexPath代理方法返回UITableViewAutomaticDimension，其中实现代理方法的优先级比设置rowHeight的高。
+2. 为了兼容iOS11以前的系统，需要将estimatedRowHeight设置为一个正数，如果使用UITableViewAutomaticDimension的话，在iOS 11以前的系统会出现cell重叠的问题。其中UITableViewAutomaticDimension的值是-1。
+3. 在UITableViewCell内部设置基于其contentView顶部和底部的约束。
+
+```
+tableView.estimatedRowHeight = 44.0f;//为了
+tableView.rowHeight = UITableViewAutomaticDimension;
+```
+
+```objc
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {//相比设置rowHeight，该代理方法的优先级更高
+    return UITableViewAutomaticDimension;
+}
+```
+
 ## 安全区域
 
 iOS 11时，苹果推出了安全区域的概念。很多开发者使用宏的方式进行适配安全区域，其实可以使用苹果提供安全区域api，提供约束去适配大部分安全区域的问题。
 
-下面的例子中，按钮button就被设置在安全区域的位置。其中iOS 11以前，可以使用UIViewController的topLayoutGuide和topLayoutGuide两个属性来实现top和bottom的安全区域适配，不过这两个属性在iOS 11已经被弃用，当然现在还可以用。
+下面的例子中，按钮button就被设置在安全区域的位置。其中iOS 11以前，可以使用UIViewController的topLayoutGuide和bottomLayoutGuide两个属性来实现top和bottom的安全区域适配，不过这两个属性在iOS 11已经被弃用，当然现在还可以用。
 
 ```objective-c
 @property(nonatomic,readonly,strong) id<UILayoutSupport> topLayoutGuide API_DEPRECATED("Use view.safeAreaLayoutGuide.topAnchor instead of topLayoutGuide.bottomAnchor", ios(7.0,11.0), tvos(7.0,11.0));
