@@ -274,7 +274,7 @@ Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉
 
 在横竖屏切换的时候容易出现这种问题。
 
-可以通过降低约束的优先级来解决。
+可以通过降低约束的优先级，或者将equal改成lessThanOrEqual或greaterThanOrEqual来解决。
 
 如果显示没问题，其实不解决也没可以。
 
