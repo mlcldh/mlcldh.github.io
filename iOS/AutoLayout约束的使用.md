@@ -357,7 +357,7 @@ tableView.rowHeight = UITableViewAutomaticDimension;
 
 iOS 11时，苹果推出了安全区域的概念。很多开发者使用宏的方式进行适配安全区域，其实可以使用苹果提供安全区域api，提供约束去适配大部分安全区域的问题。
 
-下面的例子中，按钮button就被设置在安全区域的位置。其中iOS 11以前，可以使用UIViewController的topLayoutGuide和bottomLayoutGuide两个属性来实现top和bottom的安全区域适配，不过这两个属性在iOS 11已经被弃用，当然现在还可以用。
+下面的例子中，按钮button就被设置在安全区域的位置。其中iOS 11以前，从iOS 7开始可以使用UIViewController的topLayoutGuide和bottomLayoutGuide两个属性来实现top和bottom的安全区域适配，不过这两个属性在iOS 11已经被弃用，当然现在还可以用。
 
 ```objective-c
 @property(nonatomic,readonly,strong) id<UILayoutSupport> topLayoutGuide API_DEPRECATED("Use view.safeAreaLayoutGuide.topAnchor instead of topLayoutGuide.bottomAnchor", ios(7.0,11.0), tvos(7.0,11.0));
@@ -379,7 +379,7 @@ iOS 11时，苹果推出了安全区域的概念。很多开发者使用宏的�
             make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
             make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
             make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
-        } else {
+        } else if (@available(iOS 7.0, *)) {
             make.left.right.equalTo(self.view);
             make.top.equalTo(self.mas_topLayoutGuideBottom);
             make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
@@ -402,7 +402,7 @@ iOS 11时，苹果推出了安全区域的概念。很多开发者使用宏的�
                 make.right.equalTo(view.safeAreaLayoutGuide.snp.right)
                 make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
                 make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            } else {
+            } else if #available(iOS 7.0, *) {
                 make.left.right.equalToSuperview()
                 make.top.equalTo(topLayoutGuide.snp.bottom)
                 make.bottom.equalTo(bottomLayoutGuide.snp.top)
@@ -437,7 +437,7 @@ iOS 11时，苹果推出了安全区域的概念。很多开发者使用宏的�
         [NSLayoutConstraint constraintWithItem:button attribute:(NSLayoutAttributeLeft) relatedBy:(NSLayoutRelationEqual) toItem:self.view attribute:(NSLayoutAttributeLeft) multiplier:1 constant:0].active = YES;
         [NSLayoutConstraint constraintWithItem:button attribute:(NSLayoutAttributeTop) relatedBy:(NSLayoutRelationEqual) toItem:self.topLayoutGuide attribute:(NSLayoutAttributeBottom) multiplier:1 constant:0].active = YES;
       
-    } else {
+    } else if (@available(iOS 7.0, *)) {
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:button attribute:(NSLayoutAttributeLeft) relatedBy:(NSLayoutRelationEqual) toItem:self.view attribute:(NSLayoutAttributeLeft) multiplier:1 constant:0]];
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:button attribute:(NSLayoutAttributeTop) relatedBy:(NSLayoutRelationEqual) toItem:self.topLayoutGuide attribute:(NSLayoutAttributeBottom) multiplier:1 constant:0]];
     }
