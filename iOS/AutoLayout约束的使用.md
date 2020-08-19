@@ -155,6 +155,14 @@ UILabel、UIButton、UIImageView、UISwitch等几乎所有的系统控件都有�
 - (void)setContentCompressionResistancePriority:(UILayoutPriority)priority forAxis:(UILayoutConstraintAxis)axis API_AVAILABLE(ios(6.0));
 ```
 
+##### 使用场景
+
+举个例子：
+
+当一个UILabel和一个UIImageView在一行时，两者水平方向有个固定间距，当该UILabel的text过多时，该UILabel会把该UIImageView挤扁。
+
+解决办法就是把该UILabel水平方向contentCompressionResistancePriority的优先级改成UILayoutPriorityDefaultLow。
+
 ### 增加/去掉约束
 
 使用Masonry、SnapKit时，可以调用remakeConstraints来移除view上所有约束，并且重新添加约束。但有时我们只是想移除部分约束。
@@ -244,7 +252,31 @@ Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉
 
 ## 约束冲突
 
+当添加了几个约束后，约束之间可能会存在互相矛盾的地方，这样就会出现冲突了，在控制台能够看到。
 
+### 针对不同情况的解决办法
+
+#### 个别约束添加错了
+
+那就把添加错的地方改过来。
+
+#### 页面布局动态调整，旧的约束没移除，添加的新约束
+
+##### 方法1
+
+调用remakeConstraints，移除之前所有约束，添加所有当前需要的约束。
+
+##### 方法2
+
+移除旧的约束，添加新约束。
+
+#### 某些view的frame还未更新导致的
+
+在横竖屏切换的时候容易出现这种问题。
+
+可以通过降低约束的优先级来解决。
+
+如果显示没问题，其实不解决也没可以。
 
 ## 约束绘制
 
