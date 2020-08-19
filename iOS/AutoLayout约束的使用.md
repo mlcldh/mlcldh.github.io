@@ -45,6 +45,8 @@ Objective-C一般使用[Masonry](https://github.com/SnapKit/Masonry)，Swift使�
 
 ### 生成约束
 
+#### 最早的api
+
 ```objective-c
 //生成一组约束
 + (NSArray<NSLayoutConstraint *> *)constraintsWithVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)opts metrics:(nullable NSDictionary<NSString *, id> *)metrics views:(NSDictionary<NSString *, id> *)views API_AVAILABLE(macos(10.7), ios(6.0), tvos(9.0));
@@ -63,11 +65,75 @@ Objective-C一般使用[Masonry](https://github.com/SnapKit/Masonry)，Swift使�
 @property (readonly) NSLayoutRelation relation;
 //比例
 @property (readonly) CGFloat multiplier;
-//差值
+//差值，偏移量
 @property CGFloat constant;
 ```
 
-其中在大部分情况下，NSLayoutAttributeLeading和NSLayoutAttributeLeft效果是一样的，但对于适配阿拉伯语的话，就不一样了，因为阿拉伯语是从右往左的，NSLayoutAttributeLeading就和NSLayoutAttributeRight效果一样了。
+##### 注意事项
+
+1. 其中在大部分情况下，NSLayoutAttributeLeading和NSLayoutAttributeLeft效果是一样的，但对于适配阿拉伯语的话，就不一样了，因为阿拉伯语是从右往左的，NSLayoutAttributeLeading就和NSLayoutAttributeRight效果一样了。
+2. 上面的属性除了constant以外，都是只读，也就是说生成约束后，后面更新约束只能更新constant。
+
+#### iOS 9的api Anchor
+
+苹果在iOS 9时，给UIView加了一些Anchor属性，这些属性都是NSLayoutAnchor的子类。
+
+```objc
+@interface UIView (UIViewLayoutConstraintCreation)
+
+@property(nonatomic,readonly,strong) NSLayoutXAxisAnchor *leadingAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutXAxisAnchor *trailingAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutXAxisAnchor *leftAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutXAxisAnchor *rightAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutYAxisAnchor *topAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutYAxisAnchor *bottomAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutDimension *widthAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutDimension *heightAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutXAxisAnchor *centerXAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutYAxisAnchor *centerYAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutYAxisAnchor *firstBaselineAnchor API_AVAILABLE(ios(9.0));
+@property(nonatomic,readonly,strong) NSLayoutYAxisAnchor *lastBaselineAnchor API_AVAILABLE(ios(9.0));
+
+@end
+```
+
+下面是代码调用和效果截图：
+
+```objc
+UIButton *button1 = [UIButton buttonWithType:(UIButtonTypeSystem)];
+    button1.backgroundColor = [UIColor purpleColor];
+    [button1 setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    [button1 setTitle:@"button1" forState:(UIControlStateNormal)];
+    [self.view addSubview:button1];
+    if (@available(iOS 9.0, *)) {
+        button1.translatesAutoresizingMaskIntoConstraints = NO;
+        [button1.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active = YES;
+        [button1.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:100].active = YES;
+        [button1.widthAnchor constraintEqualToConstant:100].active = YES;
+        [button1.heightAnchor constraintEqualToConstant:50].active = YES;
+    }
+    
+    UIButton *button2 = [UIButton buttonWithType:(UIButtonTypeSystem)];
+    button2.backgroundColor = [UIColor purpleColor];
+    [button2 setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    [button2 setTitle:@"button2" forState:(UIControlStateNormal)];
+    [self.view addSubview:button2];
+    if (@available(iOS 9.0, *)) {
+        button2.translatesAutoresizingMaskIntoConstraints = NO;
+        [button2.leftAnchor constraintEqualToAnchor:button1.leftAnchor].active = YES;
+        [button2.topAnchor constraintEqualToAnchor:button1.bottomAnchor constant:20].active = YES;
+        [button2.widthAnchor constraintEqualToAnchor:button1.widthAnchor multiplier:2].active = YES;
+        [button2.heightAnchor constraintEqualToAnchor:button2.widthAnchor multiplier:1].active = YES;
+    }
+```
+
+<img src="./images/constraintUseIOS9ApiAnchor.jpg" alt="constraint1" style="zoom:30%;" />
+
+##### 特点
+
+1. 使用这些属性，可以在不使用Masonry和SnapKit时，能方便的设置约束。
+2. 不过使用这些属性可以做到的东西，使用最早的api也能实现。
+3. 使用这些api还是没有使用Masonry和SnapKit方便，而且这两个库支持老版本（SnapKit新版本不支持老版本）。
 
 ### 系统控件自带约束
 
@@ -176,12 +242,16 @@ Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉
 
 如果在layoutSubviews进行约束操作的话，有出现bug的风险。我以前一个同事就是因为这么做，结果在iOS 8上显示就出了问题，我帮他改掉后就好了。
 
+## 约束冲突
+
+
+
 ## 约束绘制
 
 添加、移除、修改约束后，frame不会立马更新，默认会在下个运行时到来时才去更新。另外系统控件自带的约束也不会立即就添加，也要等运行时到来时才添加。
 
 ```objc
-dispatch_async(dispatch_get_main_queue(), ^{//此时会发现，view的frame都更新了，自身控件的约束也有了
+    dispatch_async(dispatch_get_main_queue(), ^{//此时会发现，view的frame都更新了，自身控件的约束也有了
     });
 ```
 
@@ -203,7 +273,7 @@ dispatch_async(dispatch_get_main_queue(), ^{//此时会发现，view的frame都�
 比如一个按钮一开始的约束如下：
 
 ```objective-c
-[button mas_makeConstraints:^(MASConstraintMaker *make) {
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(self.view).offset(50);
     }];
 ```
@@ -211,11 +281,11 @@ dispatch_async(dispatch_get_main_queue(), ^{//此时会发现，view的frame都�
 然后做个动画，水平移动到屏幕右侧，可以调用remakeConstraints来实现：
 
 ```objective-c
-[button mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.right.equalTo(self.view).offset(-50);
-                make.top.equalTo(self.view).offset(50);
-            }];
-[UIView animateWithDuration:2 animations:^{
+        [button mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.view).offset(-50);
+            make.top.equalTo(self.view).offset(50);
+        }];
+        [UIView animateWithDuration:2 animations:^{
             [self.view layoutIfNeeded];
         }];
 ```
@@ -524,7 +594,7 @@ Masonry里面有有个NSArray的Category，数组里面都是同一个父视图�
 
 下面就是在竖屏、横屏上，分别使用了固定子视图水平方向的间距和固定子视图的宽度：
 
-<img src="./images/constraintDistributeViewsPortrait.png" alt="constraint1" style="zoom:30%;" />
+<img src="./images/constraintDistributeViewsPortrait.jpg" alt="constraint1" style="zoom:30%;" />
 
 <img src="./images/constraintDistributeViewsLandscape.png" alt="constraint1" style="zoom:30%;" />
 
