@@ -60,6 +60,8 @@
 
 [iOS屏幕分辨率尺寸对比](https://mlcldh.github.io/iOS/iOS屏幕分辨率尺寸对比)
 
+[iOS 14上全面屏iPhone的状态栏高度](./iOS 14上全面屏iPhone的状态栏高度)
+
 [Objective-C不同数据类型占用字节大小](https://mlcldh.github.io/iOS/Objective-C不同数据类型占用字节大小)
 
 [苹果开发文档](https://mlcldh.github.io/iOS/苹果开发文档)
