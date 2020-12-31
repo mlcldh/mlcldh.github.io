@@ -64,6 +64,10 @@
 
 **[更多](https://mlcldh.github.io/Flutter/)**
 
+## IT
+
+[解决Mac版Chrome越来越大的问题](./IT/解决Mac版Chrome越来越大的问题)
+
 ## 历史
 
 [百家讲坛 大秦崛起（上部）](https://mlcldh.github.io/history/百家讲坛 大秦崛起（上部）)
