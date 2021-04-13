@@ -68,3 +68,5 @@
 
 [在网页上查看App Store的app介绍](./在网页上查看App Store的app介绍)
 
+[iOS各个系统兼容的设备](./iOS各个系统兼容的设备)
+
