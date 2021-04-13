@@ -1,4 +1,4 @@
-### iOS 14
+### iOS 13/14
 
 - iPhone 6s/6s Plus
 - iPhone SE (第一代)
