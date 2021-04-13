@@ -95,3 +95,7 @@
 
 - iPod touch（第 6 代）
 
+### iOS 9
+
+[https://support.apple.com/zh-cn/HT201222](https://support.apple.com/zh-cn/HT201222)
+

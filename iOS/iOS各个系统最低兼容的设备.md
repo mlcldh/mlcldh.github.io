@@ -38,3 +38,18 @@
 #### iPod touch
 
 - iPod touch（第 6 代）
+
+### iOS 9
+
+#### iPhone
+
+- iPhone 4
+
+#### iPad
+
+- iPad 2
+
+#### iPod touch
+
+- iPod touch（第 5 代）
+
