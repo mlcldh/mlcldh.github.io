@@ -1,5 +1,295 @@
 [Xcode App Store下载地址](https://apps.apple.com/cn/app/xcode/id497799835)
 
+#### 13.0
+
+2021年9月20日
+
+Xcode 13 includes Swift 5.5 and SDKs for iOS 15, iPadOS 15, tvOS 15, and watchOS 8
+
+
+
+\- Swift adds support for concurrency, improved type inference, and faster incremental builds
+
+\- Pull request workflow lets you view and create pull requests in Xcode
+
+\- Code review comments with the name and avatar of the commenter are integrated in the editor
+
+\- Xcode organizer displays Test Flight crash reports dramatically faster
+
+\- Swift package collections help you find and integrate Swift packages in your own apps
+
+\- Swift Docc builds documentation for your Swift framework or package directly from your source code’s documentation comments
+
+\- Quick compare lets you compare any two versions of your source code in any editor
+
+\- Vim mode in the editor supports common vim key combinations and editing modes
+
+\- Simulator now includes CarPlay support with control over screen size, resolution, and variable input methods
+
+\- Additional bug fixes and stability improvements
+
+#### 12.5.1
+
+2021年6月21日
+
+Xcode 12.5.1 supports iOS 14.5, iPadOS 14.5, tvOS 14.5, watchOS 7.4, and macOS Big Sur 11.3
+
+
+
+New in Xcode 12.5.1
+
+\- Addresses a stability issue related to opening the Organizer window
+
+\- Fixed an issue where XCTest code wasn't generated after pressing the Record button
+
+\- Additional bug fixes and stability improvements
+
+#### 12.5
+
+2021年4月26日
+
+Xcode 12.5 supports iOS 14.5, iPadOS 14.5, tvOS 14.5, watchOS 7.4, and macOS Big Sur 11.3
+
+
+
+New in Xcode 12.5
+
+• Playgrounds documents can access symbols within the current app target
+
+• Simulator can record videos of your app and export the video as an animated GIF
+
+• Swift improves incremental build time performance
+
+• watchOS apps gain improved support for automated testing
+
+• Localization workflow can export all projects within a workspace into a single catalog
+
+• Code signing performance is improved for complex projects
+
+• Additional bug fixes and stability improvements
+
+#### 12.4
+
+2021年1月26日
+
+Xcode 12.4 supports iOS 14.4, iPadOS 14.4, tvOS 14.4, watchOS 7.3, and macOS Big Sur 11.2
+
+
+
+New in Xcode 12.4
+
+• Fixed an issue that prevented debugging iPhone or iPad apps running on an M1-powered Mac
+
+• Additional bug fixes and stability improvements
+
+#### 12.3
+
+2020年12月14日
+
+Xcode 12.3 includes Swift 5.3 and SDKs for iOS 14.3, iPadOS 14.3, tvOS 14.3, watchOS 7.2, and macOS Big Sur 11.1
+
+
+
+New in Xcode 12
+
+• Xcode IDE adopts the refined macOS Big Sur design including updated toolbar, icons, and sidebar
+
+• Mac apps are updated to Universal, and Macs with Apple silicon can debug both the Apple silicon and Intel versions
+
+• Multiplatform template generates a single project with shared SwiftUI code across iOS, iPadOS, and macOS apps
+
+• Mac Catalyst projects can use the Mac idiom to take total control of the app’s interface using native scale
+
+• When run on a Mac with Apple silicon, Xcode can test and debug iPhone and iPad apps as they run on macOS
+
+• Document tabs open any type of document in a lightweight editor tab, including logs, asset catalogs, and UI files
+
+• StoreKit testing framework and transaction manager make it easy to test and debug in-app purchases
+
+• Navigator fonts are now resizable based on the system setting, or can be manually configured
+
+• Organizer is completely redesigned, and reports new app metrics such as hitches in animation and scrolling
+
+• SwiftUI Views can be turned into reusable components that appear in the Xcode library and in code completions
+
+#### 12.2
+
+2020年11月12日
+
+Xcode 12.2 includes Swift 5.3 and SDKs for iOS 14.2, iPadOS 14.2, tvOS 14.2, watchOS 7.1, and macOS Big Sur
+
+
+
+• Xcode IDE adopts the refined macOS Big Sur design including updated toolbar, icons, and sidebar
+
+• Mac apps are updated to Universal, and Macs with Apple silicon can debug both the Apple silicon and Intel versions
+
+• Multiplatform template generates a single project with shared SwiftUI code across iOS, iPadOS, and macOS apps
+
+• Mac Catalyst projects can use the Mac idiom to take total control of the app’s interface using native scale
+
+• When run on a Mac with Apple silicon, Xcode can test and debug iPhone and iPad apps as they run on macOS
+
+
+
+Additional features included in Xcode 12
+
+• Document tabs open any type of document in a lightweight editor tab, including logs, asset catalogs, and UI files
+
+• StoreKit testing framework and transaction manager make it easy to test and debug in-app purchases
+
+• Navigator fonts are now resizable based on the system setting, or can be manually configured
+
+• Organizer is completely redesigned, and reports new app metrics such as hitches in animation and scrolling
+
+• SwiftUI Views can be turned into reusable components that appear in the Xcode library and in code completions
+
+#### 12.1
+
+2020年10月20日
+
+Xcode 12.1 includes Swift 5.3 and SDKs for iOS 14.1, iPadOS 14.1, tvOS 14, watchOS 7, and macOS Catalina
+
+
+
+Platform features
+
+• App Clips are a small part of your app that’s discoverable at the moment it’s needed, loads in seconds, and launches quickly
+
+• WidgetKit uses SwiftUI to build beautiful new widgets that users can install directly on their iPhone home screen
+
+• StoreKit testing framework and transaction manager make it easy to test and debug in-app purchases
+
+
+
+Refined user interface
+
+• Document tabs open any type of document in a lightweight editor tab, including logs, asset catalogs, and UI files
+
+• Navigator fonts are now resizable based on the system setting, or can be manually configured
+
+• Code completion has a new, simplified interface that is faster, and makes it easier to choose the correct code
+
+• Organizer is completely redesigned, and reports new app metrics such as hitches in animation and scrolling
+
+
+
+Swift and SwiftUI
+
+• Performance for SwiftUI has been improved throughout, and new Lazy views can efficiently handle enormous data sets
+
+• SwiftUI Views can be turned into reusable components that appear in the Xcode library and in code completions
+
+• Swift Package Manager supports resources and localizations, making it great for sharing SwiftUI components
+
+• Swift compiler’s improved diagnostics make it much easier to understand coding mistakes, especially in SwiftUI code
+
+#### 12.0.1
+
+2020年9月24日
+
+• This update fixes an issue that could cause Xcode to crash when viewing documentation
+
+
+
+Xcode 12 includes Swift 5.3 and SDKs for iOS 14, iPadOS 14, tvOS 14, watchOS 7, and macOS Catalina
+
+
+
+Platform features
+
+• App Clips are a small part of your app that’s discoverable at the moment it’s needed, loads in seconds, and launches quickly
+
+• WidgetKit uses SwiftUI to build beautiful new widgets that users can install directly on their iPhone home screen
+
+• StoreKit testing framework and transaction manager make it easy to test and debug in-app purchases
+
+
+
+Refined user interface
+
+• Document tabs open any type of document in a lightweight editor tab, including logs, asset catalogs, and UI files
+
+• Navigator fonts are now resizable based on the system setting, or can be manually configured
+
+• Code completion has a new, simplified interface that is faster, and makes it easier to choose the correct code
+
+• Organizer is completely redesigned, and reports new app metrics such as hitches in animation and scrolling
+
+
+
+Swift and SwiftUI
+
+• Performance for SwiftUI has been improved throughout, and new Lazy views can efficiently handle enormous data sets
+
+• SwiftUI Views can be turned into reusable components that appear in the Xcode library and in code completions
+
+• Swift Package Manager supports resources and localizations, making it great for sharing SwiftUI components
+
+• Swift compiler’s improved diagnostics make it much easier to understand coding mistakes, especially in SwiftUI code
+
+#### 12.0
+
+2020年9月16日
+
+Xcode 12 includes Swift 5.3 and SDKs for iOS 14, iPadOS 14, tvOS 14, watchOS 7, and macOS Catalina
+
+
+
+Platform features
+
+• App Clips are a small part of your app that’s discoverable at the moment it’s needed, loads in seconds, and launches quickly
+
+• WidgetKit uses SwiftUI to build beautiful new widgets that users can install directly on their iPhone home screen
+
+• StoreKit testing framework and transaction manager make it easy to test and debug in-app purchases
+
+
+
+Refined user interface
+
+• Document tabs open any type of document in a lightweight editor tab, including logs, asset catalogs, and UI files
+
+• Navigator fonts are now resizable based on the system setting, or can be manually configured
+
+• Code completion has a new, simplified interface that is faster, and makes it easier to choose the correct code
+
+• Organizer is completely redesigned, and reports new app metrics such as hitches in animation and scrolling
+
+
+
+Swift and SwiftUI
+
+• Performance for SwiftUI has been improved throughout, and new Lazy views can efficiently handle enormous data sets
+
+• SwiftUI Views can be turned into reusable components that appear in the Xcode library and in code completions
+
+• Swift Package Manager supports resources and localizations, making it great for sharing SwiftUI components
+
+• Swift compiler’s improved diagnostics make it much easier to understand coding mistakes, especially in SwiftUI code
+
+#### 11.7
+
+2020年9月1日
+
+Xcode 11.7 supports developing apps with SDKs for iOS 13.7, tvOS 13.4, watchOS 6.2, and macOS Catalina 10.15.6
+
+
+
+• New Exposure Notification APIs provide additional information about potential exposures
+
+#### 11.6
+
+2020年7月15日
+
+Xcode 11.6 supports developing apps for iOS 13.6, iPadOS 13.6, tvOS 13.4, watchOS 6.2, and macOS Catalina 10.15.6
+
+
+
+• DriverKit API enhancements in the macOS SDK
+
+• Additional bug fixes and stability improvements
+
 #### 11.5
 
 2020年5月20日

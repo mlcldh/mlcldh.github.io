@@ -48,27 +48,31 @@
 
 ### 文章
 
+[AutoLayout约束的使用](./AutoLayout约束的使用)
+
 [iOS组件化方案对比](https://github.com/mlcldh/LCLive/blob/master/iOS%E7%BB%84%E4%BB%B6%E5%8C%96%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94.md)
 
-[AutoLayout约束的使用](https://mlcldh.github.io/iOS/AutoLayout约束的使用)
+[iOS字符串编码](./iOS字符串编码)
 
-[iOS字符串编码](https://mlcldh.github.io/iOS/iOS字符串编码)
-
-[解决IJK在子线程执行UI的问题](https://mlcldh.github.io/iOS/解决IJK在子线程执行UI的问题)
-
-[解决gem install bundler-1.17.3失败的问题](https://mlcldh.github.io/iOS/解决gem install bundler-1.17.3失败的问题)
-
-[iOS屏幕分辨率尺寸对比](https://mlcldh.github.io/iOS/iOS屏幕分辨率尺寸对比)
+[iOS屏幕分辨率尺寸对比](./iOS屏幕分辨率尺寸对比)
 
 [iOS 14上全面屏iPhone的状态栏高度](./iOS 14上全面屏iPhone的状态栏高度)
-
-[Objective-C不同数据类型占用字节大小](https://mlcldh.github.io/iOS/Objective-C不同数据类型占用字节大小)
-
-[苹果开发文档](https://mlcldh.github.io/iOS/苹果开发文档)
-
-[在网页上查看App Store的app介绍](./在网页上查看App Store的app介绍)
 
 [iOS各个系统兼容的设备](./iOS各个系统兼容的设备)
 
 [iOS各个系统最低兼容的设备](./iOS各个系统最低兼容的设备)
+
+[Objective-C不同数据类型占用字节大小](./Objective-C不同数据类型占用字节大小)
+
+[Xcode版本更新记录](./Xcode版本更新记录)
+
+[Xcode的Swift版本](./Xcode的Swift版本)
+
+[解决IJK在子线程执行UI的问题](./解决IJK在子线程执行UI的问题)
+
+[解决gem install bundler-1.17.3失败的问题](./解决gem install bundler-1.17.3失败的问题)
+
+[苹果开发文档](./苹果开发文档)
+
+[在网页上查看App Store的app介绍](./在网页上查看App Store的app介绍)
 
