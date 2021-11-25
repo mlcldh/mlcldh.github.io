@@ -68,9 +68,11 @@
 
 [Xcode的Swift版本](./Xcode的Swift版本)
 
+[解决gem install bundler-1.17.3失败的问题](./解决gem install bundler-1.17.3失败的问题)
+
 [解决IJK在子线程执行UI的问题](./解决IJK在子线程执行UI的问题)
 
-[解决gem install bundler-1.17.3失败的问题](./解决gem install bundler-1.17.3失败的问题)
+[解决iOS 15上图标出现对号的问题](./解决iOS 15上图标出现对号的问题)
 
 [苹果开发文档](./苹果开发文档)
 
