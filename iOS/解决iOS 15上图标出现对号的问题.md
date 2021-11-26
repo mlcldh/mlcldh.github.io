@@ -1,3 +1,5 @@
+# 解决iOS 15上图标出现对号的问题
+
 ### 现象
 
 iOS项目如果使用了iconfont，给UILabel的字体设置成[UIFont fontWithName:@"iconfont" size:iconSize]，设置的属性字符串里有图片的话，在iOS 15上图片上面就会显示个对号。
