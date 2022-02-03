@@ -13,5 +13,5 @@
 | [百家讲坛之刘心武揭秘红楼梦](https://www.bilibili.com/bangumi/play/ss32268) | 刘心武 | 2005-01-01 | 61   |
 | [百家讲坛之五百年来王阳明](https://www.bilibili.com/bangumi/play/ss31816) | 郦波   | 2017-01-01 | 26   |
 | [百家讲坛之孙子兵法](https://www.bilibili.com/bangumi/play/ss29081) | 马骏   | 2019-12-05 | 60   |
-| [百家讲坛之唐宋八大家](https://www.bilibili.com/bangumi/play/ss29604) | 高长山 | 2010-01-01 |      |
+| [百家讲坛之唐宋八大家](https://www.bilibili.com/bangumi/play/ss29604) | 高长山 | 2010-01-01 | 24   |
 
