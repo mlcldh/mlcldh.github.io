@@ -10,6 +10,8 @@
 
 [百家讲坛 王立群读史记之汉武帝](https://mlcldh.github.io/history/百家讲坛 王立群读史记之汉武帝)
 
+[百家讲坛 东汉开国](https://mlcldh.github.io/history/百家讲坛 东汉开国)
+
 [易中天品三国](https://mlcldh.github.io/history/易中天品三国)
 
 [《百家讲坛》明太祖朱元璋系列](https://mlcldh.github.io/history/《百家讲坛》明太祖朱元璋系列)
