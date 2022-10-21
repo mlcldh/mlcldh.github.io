@@ -1,4 +1,9 @@
-### iOS 13/14
+### iOS 16
+
+- iPhone 8
+- iPhone SE (第二代)
+
+### iOS 13/14/15
 
 - iPhone 6s/6s Plus
 - iPhone SE (第一代)

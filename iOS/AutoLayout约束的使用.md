@@ -6,7 +6,7 @@
 
 在iOS 6之前，可以使用UIView的autoresizingMask属性进行自动适配，autoresizingMask是个枚举UIViewAutoresizing 。
 
-```objective-c
+```objc
 typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
     UIViewAutoresizingNone                 = 0,
     UIViewAutoresizingFlexibleLeftMargin   = 1 << 0,
@@ -47,14 +47,14 @@ Objective-C一般使用[Masonry](https://github.com/SnapKit/Masonry)，Swift使�
 
 #### 最早的api
 
-```objective-c
+```objc
 //生成一组约束
 + (NSArray<NSLayoutConstraint *> *)constraintsWithVisualFormat:(NSString *)format options:(NSLayoutFormatOptions)opts metrics:(nullable NSDictionary<NSString *, id> *)metrics views:(NSDictionary<NSString *, id> *)views API_AVAILABLE(macos(10.7), ios(6.0), tvos(9.0));
 //生成单个约束
 + (instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 relatedBy:(NSLayoutRelation)relation toItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 multiplier:(CGFloat)multiplier constant:(CGFloat)c API_AVAILABLE(macos(10.7), ios(6.0), tvos(9.0));
 ```
 
-```objective-c
+```objc
 //设置A相对于B的约束，那firstItem就是A，secondItem就是B。
 @property (nullable, readonly, assign) id firstItem;
 @property (nullable, readonly, assign) id secondItem;
@@ -147,7 +147,7 @@ UILabel、UIButton、UIImageView、UISwitch等几乎所有的系统控件都有�
 
 其中contentHuggingPriority是抗拉伸，contentCompressionResistancePriority是抗压缩，具体的api如下：
 
-```objective-c
+```objc
 - (UILayoutPriority)contentHuggingPriorityForAxis:(UILayoutConstraintAxis)axis API_AVAILABLE(ios(6.0));
 - (void)setContentHuggingPriority:(UILayoutPriority)priority forAxis:(UILayoutConstraintAxis)axis API_AVAILABLE(ios(6.0));
 
@@ -169,7 +169,7 @@ UILabel、UIButton、UIImageView、UISwitch等几乎所有的系统控件都有�
 
 在iOS 8之前，可以通过调用remove来达到去掉一些约束的目的，不过这些方法未来会被弃用。
 
-```objective-c
+```objc
 //添加单个约束
 - (void)addConstraint:(NSLayoutConstraint *)constraint;
 //添加一组约束
@@ -182,7 +182,7 @@ UILabel、UIButton、UIImageView、UISwitch等几乎所有的系统控件都有�
 
 从iOS 8开始，可以通过操作active来达到去掉一些约束的目的。
 
-```objective-c
+```objc
 //激活单个约束/使单个约束无效
 @property (getter=isActive) BOOL active API_AVAILABLE(macos(10.10), ios(8.0));
 //激活一组约束
@@ -193,7 +193,7 @@ UILabel、UIButton、UIImageView、UISwitch等几乎所有的系统控件都有�
 
 我写了个UIView的Category方法，可以用来移除部分约束：
 
-```objective-c
+```objc
 //移除某一些约束
 - (void)mlc_removeConstraintsWithFirstItem:(id)firstItem firstAttribute:(NSLayoutAttribute)firstAttribute {//移除某一些约束
     for (NSLayoutConstraint *constraint in self.constraints) {
@@ -212,7 +212,7 @@ UILabel、UIButton、UIImageView、UISwitch等几乎所有的系统控件都有�
 
 UIView有个constraints属性，里面存放了其所有的约束。
 
-```objective-c
+```objc
 @property(nonatomic,readonly) NSArray<__kindof NSLayoutConstraint *> *constraints API_AVAILABLE(ios(6.0));
 ```
 
@@ -223,7 +223,7 @@ UIView有个constraints属性，里面存放了其所有的约束。
 
 Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉及两个视图时，Masonry需要去便利查找两个视图最近的父视图，来添加或移除约束，Masonry就封装了View的一个Category方法，它的实现如下：
 
-```objective-c
+```objc
 - (instancetype)mas_closestCommonSuperview:(MAS_VIEW *)view {
     MAS_VIEW *closestCommonSuperview = nil;
 
@@ -287,7 +287,7 @@ Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉
     });
 ```
 
-```objective-c
+```objc
 @interface UIView (UIConstraintBasedLayoutCoreMethods) 
   
 //标记为需要重新布局，异步调用layoutIfNeeded刷新布局，不立即刷新
@@ -304,7 +304,7 @@ Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉
 
 比如一个按钮一开始的约束如下：
 
-```objective-c
+```objc
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(self.view).offset(50);
     }];
@@ -312,7 +312,7 @@ Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉
 
 然后做个动画，水平移动到屏幕右侧，可以调用remakeConstraints来实现：
 
-```objective-c
+```objc
         [button mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.view).offset(-50);
             make.top.equalTo(self.view).offset(50);
@@ -324,7 +324,7 @@ Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉
 
 也可以先移除掉左边的约束，然后增加个右侧的约束：
 
-```objective-c
+```objc
 [self.view mlc_removeConstraintsWithFirstItem:button firstAttribute:(NSLayoutAttributeLeft)];//我封装的Category方法，上面有实现
             [button mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.equalTo(self.view).offset(-50);
@@ -342,7 +342,7 @@ Masonry最低支持版本是iOS 6，所以iOS 8之前的系统中，当约束涉
 2. 为了兼容iOS11以前的系统，需要将estimatedRowHeight设置为一个正数，如果使用UITableViewAutomaticDimension的话，在iOS 11以前的系统会出现cell重叠的问题。其中UITableViewAutomaticDimension的值是-1。
 3. 在UITableViewCell内部设置基于其contentView顶部和底部的约束。
 
-```
+```objc
 tableView.estimatedRowHeight = 44.0f;//为了
 tableView.rowHeight = UITableViewAutomaticDimension;
 ```
@@ -359,14 +359,14 @@ iOS 11时，苹果推出了安全区域的概念。很多开发者使用宏的�
 
 下面的例子中，按钮button就被设置在安全区域的位置。其中iOS 11以前，从iOS 7开始可以使用UIViewController的topLayoutGuide和bottomLayoutGuide两个属性来实现top和bottom的安全区域适配，不过这两个属性在iOS 11已经被弃用，当然现在还可以用。
 
-```objective-c
+```objc
 @property(nonatomic,readonly,strong) id<UILayoutSupport> topLayoutGuide API_DEPRECATED("Use view.safeAreaLayoutGuide.topAnchor instead of topLayoutGuide.bottomAnchor", ios(7.0,11.0), tvos(7.0,11.0));
 @property(nonatomic,readonly,strong) id<UILayoutSupport> bottomLayoutGuide API_DEPRECATED("Use view.safeAreaLayoutGuide.bottomAnchor instead of bottomLayoutGuide.topAnchor", ios(7.0,11.0), tvos(7.0,11.0));
 ```
 
 ### Masonry的调用
 
-```objective-c
+```objc
     //注意，当前的edgesForExtendedLayout是默认的UIRectEdgeAll，请看看该button的frame
     UIButton *button = [UIButton buttonWithType:(UIButtonTypeSystem)];
     button.backgroundColor = [UIColor purpleColor];
@@ -426,7 +426,7 @@ iOS 11时，苹果推出了安全区域的概念。很多开发者使用宏的�
 
 以left和top为例：
 
-```objective-c
+```objc
     button.translatesAutoresizingMaskIntoConstraints = NO;
 
     if (@available(iOS 11.0, *)) {
@@ -453,7 +453,7 @@ UIScrollView是iOS系统非常特殊的一个系统控件，当其contentSize大
 
 在基于UIScrollView进行加约束的话，会有些问题。比如下面这块代码，想的是让子视图在UIScrollView的右下角，而实际上子视图被放到了UIScrollView左上角外面。。。
 
-```objective-c
+```objc
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     scrollView.backgroundColor = [UIColor purpleColor];
     [self.view addSubview:scrollView];
@@ -488,7 +488,7 @@ UIScrollView是iOS系统非常特殊的一个系统控件，当其contentSize大
 
 不过这样我们也发现使用约束和frame的一个区别：如果只是使用frame进行布局，UIScrollView的子视图一定会随其以前滚动；而使用约束的话，UIScrollView的子视图可以不随UIScrollView一起滚动。
 
-```objective-c
+```objc
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     
     UIScrollView *scrollView = [[UIScrollView alloc]init];
@@ -515,7 +515,7 @@ UIScrollView是iOS系统非常特殊的一个系统控件，当其contentSize大
 
 直接设置基于UIScrollView的宽度和高度的约束。
 
-```objective-c
+```objc
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     scrollView.backgroundColor = [UIColor purpleColor];
     if (@available(iOS 11.0, *)) {
@@ -547,7 +547,7 @@ UIScrollView是iOS系统非常特殊的一个系统控件，当其contentSize大
 
 间接设置基于UIScrollView的宽度和高度的约束。
 
-```objective-c
+```objc
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     scrollView.backgroundColor = [UIColor purpleColor];
     if (@available(iOS 11.0, *)) {
@@ -582,7 +582,7 @@ UIScrollView是iOS系统非常特殊的一个系统控件，当其contentSize大
 
 UITextView继承于UIScrollView，当设置其scrollEnabled属性为NO时，随着其文字内容的变化，UITextView会相应跟着变化。
 
-```objective-c
+```objc
 @property(nonatomic,getter=isScrollEnabled) BOOL scrollEnabled;
 ```
 
@@ -592,7 +592,7 @@ UITextView继承于UIScrollView，当设置其scrollEnabled属性为NO时，随�
 
 比如下面，下面一个视图的中心点的处于父视图水平三分之一处：
 
-```objective-c
+```objc
     //让视图中心点的处于父视图水平三分之一处
     UIView *boxView = [[UIView alloc]init];
     boxView.backgroundColor = [UIColor purpleColor];
@@ -610,7 +610,7 @@ UITextView继承于UIScrollView，当设置其scrollEnabled属性为NO时，随�
 
 Masonry里面有有个NSArray的Category，数组里面都是同一个父视图的子视图，利用这些方法除了可以批量设置、更新约束外，还可以让让里面的子视图规则的分别在父视图上面。
 
-```objective-c
+```objc
 @interface NSArray (MASAdditions)
 
 - (NSArray *)mas_makeConstraints:(void (NS_NOESCAPE ^)(MASConstraintMaker *make))block;
