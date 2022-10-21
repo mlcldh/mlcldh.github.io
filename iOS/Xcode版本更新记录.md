@@ -1,5 +1,169 @@
 [Xcode App Store下载地址](https://apps.apple.com/cn/app/xcode/id497799835)
 
+#### 14.0.1
+
+2022年9月26日
+
+This update fixes an issue that prevents development with devices running iOS 15.7.
+
+
+
+Xcode 14.0.1 includes Swift 5.7 and SDKs for iOS 16, iPadOS 16, tvOS 16, watchOS 9, and macOS Monterey 12.3.
+
+
+
+Xcode
+
+• Downloadable simulator runtime for watchOS and tvOS
+
+• Single target template for multi-platform apps across iOS, iPadOS, macOS, and tvOS
+
+• Asset catalog generates all icons sizes from a single 1024*1024 source image
+
+• Pinned code structure in source editor
+
+• SwiftUI Previews are interactive by default and provides multiple UI variations from a single PreviewProvider
+
+
+
+Build and Documentation
+
+• Build system uses improved dependencies analysis and parallelism for faster performance
+
+• New assistant editor to help identify build performance issues
+
+• Build and command package plug-ins in Swift Packages
+
+• Swift-DocC supports writing and building documentation for Objective-C and C APIs
+
+
+
+Swift
+
+• Syntax highlighting and refactoring operations for regular expressions
+
+• Smarter code completion and additional dynamic snippets
+
+#### 14.0
+
+2022年9月12日
+
+Xcode 14 includes Swift 5.7 and SDKs for iOS 16, iPadOS 16, tvOS 16, watchOS 9, and macOS Monterey 12.5.
+
+
+
+Xcode
+
+Downloadable simulator runtime for WatchOS and tvOS
+
+Single target template for multi-platform apps across iOS, iPad OS, macOS, and tvOS
+
+Automatic icon generation for all icon sizes using the Asset Catalog
+
+Pinned code structure in source editor
+
+Interactive SwiftUI Previews are now on by default and provide multiple UI variations from a single PreviewProvider
+
+
+
+Build and Documentation
+
+Faster build performance using improved dependency analysis and increased parallelism
+
+New build timeline assistant to help identify build performance issues
+
+Build and command package plug-ins in Swift Packages
+
+Objective-C and C API documentation support in Swift-DocC
+
+
+
+Swift
+
+Syntax highlighting and refactoring operations for regular expressions
+
+Smarter code completion and additional dynamic snippets
+
+#### 13.4.1
+
+2022年6月2日
+
+Xcode 13.4.1 includes SDKs for iOS 15.5, iPadOS 15.5, tvOS 15.4, watchOS 8.5, and macOS Monterey 12.3, and bug fixes.
+
+#### 13.4
+
+2022年5月16日
+
+Xcode 13.4 includes SDKs for iOS 15.5, iPadOS 15.5, tvOS 15.4, watchOS 8.5, and macOS Monterey 12.3, and bug fixes.
+
+#### 13.3.1
+
+2022年4月11日
+
+Xcode 13.3.1 includes SDKs for iOS 15.4, iPadOS 15.4, tvOS 15.4, watchOS 8.5, and macOS Monterey 12.3, and bug fixes including the following:
+
+• bitcode_strip tool may cause apps built with bitcode to crash on launch
+
+#### 13.3
+
+2022年3月14日
+
+Xcode 13.3 includes SDKs for iOS 15.4, iPadOS 15.4, tvOS 15.4, watchOS 8.5, and macOS Monterey 12.3, along with other features and bug fixes.
+
+• Swift Package Manager enables extensible build tools and custom command plugins
+
+• Xcode Account integration adds Ed25519 encryption support for SSH keys
+
+#### 13.2.1
+
+2021年12月17日
+
+Xcode 13.2.1 includes SDKs for iOS 15.2, iPadOS 15.2, tvOS 15.2, watchOS 8.3, and macOS Monterey 12.1.
+
+
+
+Xcode 13.2.1 also includes bug fixes:
+
+
+
+• Apps built with Swift concurrency may crash on launch
+
+• Xcode was unable resolve Swift packages
+
+#### 13.2
+
+2021年12月13日
+
+Xcode 13.2 includes SDKs for iOS 15.2, iPadOS 15.2, tvOS 15.2, watchOS 8.3, and macOS Monterey 12.1.
+
+
+
+New in Xcode 13.2
+
+• Support for Swift Playgrounds 4 app projects
+
+• Xcode Organizer displays smart insight notifications for monitoring power and performance in your app
+
+• Swift Concurrency is available for apps that deploy to iOS 13, iPad OS 13, tvOS 13, watchOS 6, and macOS 10.15 or newer
+
+• TextureConverter adds support for error metrics, decompressing textures at build time, and skipping compression when output textures are up-to-date
+
+• Additional bug fixes and stability improvements
+
+#### 13.1
+
+2021年10月25日
+
+Xcode 13.1 includes Swift 5.5 and SDKs for iOS 15, iPad OS 15, tvOS 15, watchOS 8, and macOS Monterey.
+
+
+
+New in Xcode 13.1
+
+\- Support for macOS Monterey
+
+\- Additional bug fixes and stability improvements
+
 #### 13.0
 
 2021年9月20日
