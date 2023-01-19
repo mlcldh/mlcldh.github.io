@@ -1,6 +1,6 @@
 | Xcode版本 | Swift版本 | Xcode发布时间 | Swift信息                                                    |
 | --------- | --------- | ------------- | ------------------------------------------------------------ |
-| 14.0.1    | 5.7       | 2022.9.26     | Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50) |
+| 14.0.1    | 5.7       | 2022.9.26     | swift-driver version: 1.62.8 Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50) |
 | 13.4      | 5.6.1     | 2022.5.16     | swift-driver version: 1.45.2 Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12) |
 | 13.2.1    | 5.5.2     | 2021.12.17    | Target: x86_64-apple-macosx12.0swift-driver version: 1.26.21 Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30) |
 | 13.0      | 5.5       | 2021.9.20     | Target: x86_64-apple-macosx11.0                              |
